@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fuanfan.css">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <style>
         /* 基础布局：保持整体局稳定 */
         html, body {
@@ -204,7 +204,7 @@
             const searchTitle = document.querySelector('.search-results-container h2');
 
             // 初始化状态
-            logoImg.src = "../images/logo_fuanfan.jpeg";
+            logoImg.src = "images/logo_fuanfan.jpeg";
             logoImg.alt = "福安家常菜馆";
             body.classList.remove('body-forbidden');
             container.classList.remove('container-forbidden');
@@ -223,7 +223,7 @@
 
                 if (forbiddenConfig) {
                     // 触发禁止关键词状态
-                    logoImg.src = "../images/logo_secret.png";
+                    logoImg.src = "images/logo_secret.png";
                     logoImg.alt = "福安家常菜馆（秘密模式）";
                     
                     body.classList.add('body-forbidden');
