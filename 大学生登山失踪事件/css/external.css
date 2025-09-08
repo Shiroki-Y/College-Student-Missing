@@ -1,0 +1,183 @@
+/* 通用样式 */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #004a77;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #004a77;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 5px;
+}
+
+.mainstyle {
+  background-color: #f9ebde; /* 这里设置你想要的颜色 */
+}
+
+.content {
+    text-indent: 2em; /* 首行缩进 */
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 45%; /* 保持和原来一样的宽度 */
+    height: auto; /* 高度自适应，防止图片变形 */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #004a77;
+    color: #fff;
+    margin-top: 20px;
+}
+
+a img {
+    border: none;
+}
+
+/* 移除主区域的白色背景和边框，使其与网页背景融合 */
+.article-main {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 960px;
+    margin-bottom: 70px; /* 在文章下方留出 50px 的空间，你可以根据需要调整 */
+}
+
+/* 文章容器样式 */
+.article-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    /* 你可以在这里给文章区域设置一个半透明的背景，让文字更清晰 */
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    /* border-radius: 8px; */
+}
+
+/* 文章标题样式 */
+.article-title {
+    text-align: left;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 图片容器样式 */
+.article-image {
+    /* 保持 display:flex; 样式 */
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start; /* 将整个图片-说明文字块左对齐 */
+    margin-bottom: 20px;
+}
+
+.article-image img {
+    max-width: 40%;
+    height: auto;
+}
+
+.article-image figcaption {
+    /* 让说明文字的宽度和图片相同，并增加一些左右内边距，防止文字紧贴边缘 */
+    max-width: 100%; 
+    box-sizing: border-box; 
+    padding: 0 0px; /* 添加左右内边距 */
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 10px;
+    text-align: left !important;
+}
+/* 文章正文样式 */
+.article-body p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5em;
+    text-indent: 2em; /* 段落首行缩进 */
+}
+
+@media (max-width: 768px) {
+  /* 调整图片宽度，让它在手机上占据更多空间 */
+  .article-image img {
+    max-width: 100%;
+  }
+  
+  /* 调整说明文字的宽度，并增加上下外边距，防止紧贴 */
+  .article-image figcaption {
+    max-width: 100%;
+    margin-top: 15px; /* 增加上外边距 */
+    margin-bottom: 15px; /* 增加下外边距 */
+  }
+  
+  /* 调整文章正文，增加左右内边距，防止文字太宽 */
+  .article-body p {
+    padding: 0 15px;
+  }
+}

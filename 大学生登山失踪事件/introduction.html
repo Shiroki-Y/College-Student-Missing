@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学生登山失踪事件</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+/* General styles for image areas */
+.image-area {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-area img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Specific style for the 70% image */
+.image-area.image-70 img {
+    width: 100%; /* Default to 100% on smaller screens */
+}
+
+/* Specific style for the 50% image */
+.image-area.image-50 img {
+    width: 100%; /* Default to 100% on smaller screens */
+}
+
+@media (min-width: 769px) {
+    /* 70% image on larger screens */
+    .image-area.image-70 img {
+        width: 60%;
+    }
+
+    /* 50% image on larger screens */
+    .image-area.image-50 img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-area {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-area {
+        max-height: 200px;
+    }
+}
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #444;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        .emphasized {
+            font-size: 1.2em; /* 可以根据需要调整字号大小 */
+            font-weight: bold;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="image-area image-70">
+            <!-- 这里放置游戏相关的图片 -->
+            <img src="images/gamestart.jpg" alt="First Image">
+        </div>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>◯ 引言</h2>
+            <p>今天是2025年的3月23日。你叫顾晴（26），你的弟弟顾铭（22）是一名大四学生，平时热爱户外运动。顾铭在一周前的3月15日去攀登一座并不危险的山时突然神秘失踪，警方和民间搜救队都派出人力进行搜索，却仍无任何收获。事件已过去一个星期，你焦急如焚却又没有其他办法，只好翻找弟弟留在家里的物品来收集更多线索。这天，你在他的衣物中发现了<b>一包印着“福安家常菜馆”名的餐巾纸，里面夹有一张奇怪的符咒</b>。在一番搜索后，你发现这家店在弟弟失踪后没多久就突然停业，而且官网也不再更新。冥冥之中，你觉得这家店和弟弟的失踪应该有关系，于是凭借自己对网页构造的了解突破了官网的搜索引擎漏洞，<b>可以通过输入关键字搜出本不应该显示的内容</b>。由此，你通过浏览福安家常菜馆的官网，展开了对这家店背后隐藏的秘密、以及失踪弟弟下落的探索。。。</p>
+            <div class="image-area image-50"><img src="images/photo.jpg" alt="Second Image"></div>
+        </section>
+
+        <section id="gameplay">
+            <h2>◯ 玩法</h2>
+            <h3>游戏目的</h3>
+            <p>通过浏览<a href="index.html" target="_blank">福安家常菜馆的官网</a>：</p>
+            <ul>
+                <li>搜集弟弟失踪的线索</li>
+                <li>找出饭馆停业背后隐藏的真相</li>
+                <li>找回行迹不明的弟弟</li>
+            </ul>
+
+            <h3>游戏玩法</h3>
+            <p>这是一款“没有进度条”的游戏，只要有正确的关键词，你就可以查看对应的隐藏信息。你需要在网站的各个页面中寻找“关键词”，并在网站内的搜索框进行搜索，一步步揭开网站里被隐藏的秘密网页。</p>
+            <p><span class="emphasized">推进方法：阅读现有页面→找出可疑的关键词并搜索→发现隐藏页面→重复，直到实现游戏目的</span></p>
+            <p>每个网页的页脚处都标有对应数字和总页面数，<b>数字越大，就意味着你越接近真相。</b></p>
+
+            <h3>注意事项</h3>
+            <ol>
+                <li><b>本游戏不要求任何编程、it知识。</b>请你只从肉眼可见的信息中进行推理，无需查看源代码或修改/解析文件等。</li>
+                <li>请务必查看以下有关搜索关键词的注意事项：
+                    <ul>
+                        <li><span class="emphasized">每次只能搜索1个关键词</span>，不支持多词搜索</li>
+                        <li><span class="emphasized">只支持汉字搜索</span>，请勿使用空格、英文、数字及任何特殊符号</li>
+                    </ul>
+                </li>
+                <li>游戏中没有跳脸或血腥画面（也并没有技术力制作这些）。游戏不包含任何音效。</li>
+            </ol>
+
+            <h3>游戏建议</h3>
+            <ol>
+                <li><b>可使用excel等工具记下你已发现的网页、页码、所用关键词、大致内容。</b>这能很好的帮助你整理思绪，防止遗漏页面或忘记某个页面的进入方法</li>
+                <li>不一定只有没听过的专有名词才是“可疑关键词”，请仔细阅读页面的每个词语。</li>
+                <li><b>善用外部搜索工具。</b>虽然游戏中有许多虚构内容，但其舞台和背景是我们生活的真实世界。如果你需要某些外部信息，请尝试使用百度等搜索引擎。</li>
+            </ol>
+
+            <h3>入门提示</h3>
+            <p>阅读到这里，你就可以正式开始游戏了。把自己带入顾晴，首先查看福安家常菜馆官网的几个基础页面吧！如果不知道怎么推进，可以先在搜索框输入“<span class="emphasized">顾铭</span>”，以及“<span class="emphasized">某个显示暂停开放的页面</span>”。祝你玩的开心！</p>
+            <p><a href="index.html" target="_blank">福安家常菜馆官网</a></p>
+        </section>
+    </main>
+
+</body>
+</html>
