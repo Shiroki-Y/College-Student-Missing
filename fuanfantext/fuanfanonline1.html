@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>福安饭</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="福安饭平台">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/fuanfan.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 直接在页面添加单独的样式（也可放入 fuanfan.css） -->
+    <style>
+        /* 控制链接容器：仅占单个空格大小，不影响布局 */
+        .invisible-link-wrapper {
+            display: inline-block; /* 不独占一行，仅包裹内容 */
+            width: 1em; /* 宽度=1个字符大小（匹配空格） */
+            height: 1em; /* 高度=1个字符大小 */
+            line-height: 1; /* 确保垂直居中 */
+            padding: 0;
+            margin: 0;
+        }
+        /* 隐形链接样式：完全透明，无装饰，仅占容器大小 */
+        .invisible-link-specific {
+            display: block; /* 填充整个容器 */
+            width: 100%; /* 继承容器宽度 */
+            height: 100%; /* 继承容器高度 */
+            color: transparent; /* 文字透明 */
+            text-decoration: none; /* 移除下划线 */
+            background: transparent; /* 背景透明 */
+            white-space: nowrap; /* 防止空格拉伸 */
+        }
+        /* 悬停时也保持隐形 */
+        .invisible-link-specific:hover {
+            color: transparent;
+            text-decoration: none;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1 id="logo"><a href="../index.html"><img src="../images/logo_fuanfan.jpeg" alt="福安家常菜馆"></a></h1>
+            <div id="header-box">
+                <form id="search-form" action="../search-results.html" method="get">
+                    <input type="text" id="search-input" name="q" placeholder="搜索内容...">
+                    <button type="submit">搜索</button>
+                </form>
+            </div>
+        </header>        
+        <div class="thread">
+            <!-- 原有帖子内容不变 -->
+            <div class="post">
+                <div class="post-info">
+                    1 昵称：<b>失落的夜行人</b> ID:DfR2sT9uV 发布时间：2025/03/15 22:31
+                </div>
+                <div class="post-content">
+                    最近真是心力交瘁。公司里辛苦了一年，每天加班到深夜，做了无数个方案，本以为升职是板上钉钉的事。结果，机会却给了那个资历比我浅的新同事。真的想不通，也觉得特别委屈，心里空落落的。
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-info">
+                    2 昵称：<b>李福安</b> ID:fuan0720 发布时间：2025/03/15 22:55
+                </div>
+                <div class="post-content">
+                    朋友，先别泄气。你的这种心情我很懂。就像我这小店，每天辛辛苦苦忙活，有时候一算账，赚的钱也就刚够交房租。那种滋味心里憋得慌。可话说回来，老天爷给你关了一扇门，说不定就是在告诉你，该换个地方走走、找个真正懂你的人了。这些年你付出的心血，学到的本事，那可都是实打实的，谁也偷不走。
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-info">
+                    3 昵称：<b>失落的夜行人</b> ID:DfR2sT9uV 发布时间：2025/03/15 23:03
+                </div>
+                <div class="post-content">
+                    谢谢您。他们都劝我以后还有机会，别计较太多，但我就是忍不住去想。您说的让我心里好受多了，我决定好好思考一下今后的职业规划。
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-info">
+                    4 昵称：<b>李福安</b> ID:fuan0720 发布时间：2025/03/16 9:56
+                </div>
+                <div class="post-content">
+                    对，就该这样。好好睡一觉，明天又是新的一天。你后面还有什么想聊的，欢迎随时再来找我们。
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-info">
+                    5 昵称：<b>失落的夜行人</b> ID:DfR2sT9uV 发布时间：2025/03/16 12:17
+                </div>
+                <div class="post-content">
+                    好的，不过我现在在犹豫是再找老板聊聊看，还是直接去找别的机会。如果能当面听到老板的想法，听到他说我的努力配不上这个职位，那我辞职也就毫无顾虑了。您觉得怎么样？
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-info">
+                    6 昵称：<b>失落的夜行人</b> ID:DfR2sT9uV 发布时间：2025/03/17 20:10
+                </div>
+                <div class="post-content">
+                    您好，请问还在吗？
+                </div>
+            </div>
+        
+        </div>
+        <!-- 给隐形链接添加单独div容器 -->
+        <div class="invisible-link-wrapper">
+            <a href="dedication_net.html" class="invisible-link-specific">
+                &nbsp; <!-- 单个非换行空格 -->
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <small>
+            <span class="first-line">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</span>
+            <span class="second-line">Copyright&copy; Shiroki. All Rights Reserved.&nbsp;&nbsp;&nbsp;05/36</span>
+        </small>
+    </footer>
+    
+    <a href="../fuanfan.html" id="back-to-top">
+        <i class="fas fa-arrow-left"></i> 返回
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
