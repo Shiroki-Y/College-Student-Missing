@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<title>香椿炒鸡蛋</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="香椿炒鸡蛋">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+/* 新增的样式用于布局问题和输入框 */
+.quiz-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.quiz-input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.quiz-input-group input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-right: 10px;
+}
+.quiz-input-group button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.quiz-input-group button:hover {
+    background-color: #45a049;
+}
+#quiz-feedback {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+#quiz-feedback.correct {
+    color: green;
+}
+#quiz-feedback.error {
+    color: red;
+}
+#correct-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: none; /* 默认隐藏 */
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="main.html"><img src="images/logo.png" alt="福安家常菜馆"></a></h1>
+<div id="header-box">
+<form id="search-form" action="search-results.html" method="get">
+<input type="text" id="search-input" name="q" placeholder="搜索内容...">
+<button type="submit">搜索</button>
+</form>
+</div>
+</header>
+
+<div id="menubar">
+<nav>
+<ul>
+<li><a href="main.html">首页</a></li>
+<li><a href="menu.html">菜品介绍</a></li>
+<li><a href="environment.html">店内环境</a></li>
+<li><a href="javascript:void(0);" onclick="showMaintenanceAlert();">“福安饭”</a></li>
+</ul>
+</nav>
+</div>
+
+<div id="contents">
+    <main>
+        <div class="quiz-container">
+            <div class="quiz-question">香椿的最佳食用时间是？</div>
+            <div class="quiz-question">回答形式：<em>数字</em>至<em>数字</em>月</div>
+            <div class="quiz-input-group">
+                <input type="text" id="answer-input" placeholder="例如：1至2月">
+                <button id="submit-button">提交</button>
+            </div>
+            
+            <div id="quiz-feedback"></div>
+            
+            <img id="correct-image" src="images/toon.jpg" alt="香椿炒鸡蛋图片">
+            
+        </div>
+    </main>
+</div>
+</div>
+
+
+<footer>
+<small>
+    <span class="first-line">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</span>
+    <span class="second-line">Copyright&copy; Shiroki. All Rights Reserved.&nbsp;&nbsp;&nbsp;?/36</span>
+</small>
+</footer>
+
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('answer-input');
+    const button = document.getElementById('submit-button');
+    const feedback = document.getElementById('quiz-feedback');
+    const image = document.getElementById('correct-image');
+    
+    // 正确答案（不区分大小写和首尾空格）
+    const correctAnswer = '3至5月';
+
+    button.addEventListener('click', function() {
+        // 清理输入并转换为小写，便于宽松匹配
+        const userAnswer = input.value.trim().toLowerCase();
+
+        // 隐藏图片和清除旧消息
+        image.style.display = 'none';
+        feedback.textContent = '';
+        feedback.classList.remove('correct', 'error');
+
+        if (userAnswer === correctAnswer) {
+            // 回答正确
+            feedback.innerHTML = '恭喜你回答正确！<br>小店的新品香椿炒鸡蛋将于3月中下旬推出，欢迎前来品尝';
+            feedback.classList.add('correct');
+            image.style.display = 'block'; // 显示图片
+        } else {
+            // 回答错误
+            feedback.textContent = '回答错误！可以试着在浏览器搜一搜？';
+            feedback.classList.add('error');
+        }
+    });
+});
+</script>
+
+
+</body>
+</html>
