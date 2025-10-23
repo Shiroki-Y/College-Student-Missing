@@ -212,11 +212,6 @@
                         searchContainer.classList.remove('search-container-forbidden');
                         searchTitle.textContent = "搜索结果";
                         const results = [];
-                        for (const [key, value] of Object.entries(keywordsMap)) {
-                            if (key === encodedQuery) {
-                                results.push(value);
-                            }
-                        }
                         if (keywordsMap[encodedQuery]) {
                             const results = keywordsMap[encodedQuery];
                             resultsDisplay.innerHTML = `
