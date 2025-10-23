@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+<script src="js/md5.min.js"></script>
 <style>
 /* 新增的样式用于布局问题和输入框 */
 .quiz-container {
@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedback = document.getElementById('quiz-feedback');
     const image = document.getElementById('correct-image');
     
-    // 正确答案（不区分大小写和首尾空格）
-    const correctAnswer = '3至5月';
+    // 正确答案列表（不区分大小写和首尾空格）
+    const correctAnswers = ['3至5月', '3至4月'];
 
     button.addEventListener('click', function() {
         // 清理输入并转换为小写，便于宽松匹配
@@ -163,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         feedback.textContent = '';
         feedback.classList.remove('correct', 'error');
 
-        if (userAnswer === correctAnswer) {
+        // 检查用户答案是否在正确答案列表中
+        if (correctAnswers.some(answer => answer.toLowerCase() === userAnswer)) {
             // 回答正确
             feedback.innerHTML = '恭喜你回答正确！<br>小店的新品香椿炒鸡蛋将于3月中下旬推出，欢迎前来品尝';
             feedback.classList.add('correct');
@@ -176,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
 
 </body>
 </html>
