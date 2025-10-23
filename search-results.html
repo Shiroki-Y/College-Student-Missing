@@ -211,9 +211,8 @@
                         container.classList.remove('container-forbidden');
                         searchContainer.classList.remove('search-container-forbidden');
                         searchTitle.textContent = "搜索结果";
-                        const results = [];
-                        if (keywordsMap[encodedQuery]) {
-                            const results = keywordsMap[encodedQuery];
+                        const results = keywordsMap[encodedQuery] || [];
+                        if (results.length > 0) {
                             resultsDisplay.innerHTML = `
                             <p>共有 <b>${results.length}</b> 项符合条件的结果：</p>
                             ${results.map(r => `<a href="${r.url}" style="display:block;margin-top:10px;color:#337ab7;" target="_blank">${r.title}</a>`).join('')}
