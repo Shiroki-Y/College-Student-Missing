@@ -13,7 +13,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <style>
-        /* 基础布局：保持整体局稳定 */
         html, body {
             margin: 0;
             padding: 0;
@@ -23,11 +22,10 @@
         }
         #container {
             min-height: 100%;
-            padding-bottom: 60px; /* 预留footer高度，确保布局稳定 */
+            padding-bottom: 60px;
             box-sizing: border-box;
             transition: background-color 0.3s ease;
         }
-        /* 搜索结果容器：默认样式，禁止状态下变红 */
         .search-results-container {
             max-width: 800px;
             margin: 40px auto;
@@ -36,7 +34,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             text-align: left;
-            transition: all 0.3s ease; /* 平滑过渡，保持布局感 */
+            transition: all 0.3s ease;
         }
         .search-results-container h2 {
             text-align: center;
@@ -53,7 +51,6 @@
         .search-results-container a:hover {
             text-decoration: underline;
         }
-        /* 禁止状态：搜索框及文字变红 */
         .search-container-forbidden {
             border-color: #ff0000 !important;
             background-color: #2a0a0a !important;
@@ -63,52 +60,46 @@
         .search-container-forbidden p:not(.hidden-text) {
             color: #ff0000 !important;
         }
-        /* 隐藏文字样式优化：黑色方块与字数长度相同且居中 */
         .hidden-text-container {
             margin: 10px 0;
             text-align: center;
         }
         .hidden-text {
-            display: inline-block; /* 使方块长度与文字相同 */
+            display: inline-block;
             background-color: #000;
-            color: #000; /* 默认文字颜色与背景一致 */
+            color: #000;
             padding: 2px 4px;
             cursor: text;
             user-select: text;
             transition: color 0.1s ease;
         }
         .hidden-text::selection {
-            color: #ff0000; /* 选中后显示红色文字 */
-            background-color: #333; /* 选中背景稍亮 */
+            color: #ff0000;
+            background-color: #333;
         }
-        /* 无遮挡文字样式 */
         .visible-text {
             display: inline-block;
             color: #ff0000;
             padding: 2px 4px;
             text-align: center;
         }
-        /* 禁止状态：页面背景色变化 */
         .body-forbidden {
             background-color: #1b1c1d !important;
         }
         .container-forbidden {
             background-color: #1a1b1c !important;
         }
-        /* Logo样式：保持尺寸稳定，仅切换图片 */
         #logo img {
             display: block !important;
             width: 280px !important;
             height: auto !important;
             margin: 0 auto;
-            transition: opacity 0.3s ease; /* 平滑切换效果 */
+            transition: opacity 0.3s ease;
         }
-        /* 页脚样式：仅在禁止状态下强制固定颜色 */
         footer {
             position: relative;
             z-index: 100;
         }
-        /* 仅在禁止状态下应用固定颜色 */
         .body-forbidden footer,
         .body-forbidden footer small,
         .body-forbidden footer .first-line,
@@ -118,15 +109,12 @@
         }
     </style>
 </head>
-
 <body>
     <div id="container">
         <header>
-            <!-- 默认显示fuanfan logo，禁止状态下切换为secret -->
             <h1 id="logo"><a href="index.html"><img src="images/logo_fuanfan.jpeg" alt="福安家常菜馆"></a></h1>
             <div id="header-box"></div>
         </header>
-
         <div id="contents" class="contents-search-page">
             <main>
                 <div class="search-results-container">
@@ -136,129 +124,77 @@
             </main>
         </div>
     </div>
-
-    <!-- 原始footer，非禁止状态下使用默认颜色 -->
-<footer>
-    <small>
-        <span class="first-line">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</span>
-        <!-- 新增 .custom-date 类，标识要修改的日期部分 -->
-        <span class="second-line">Copyright&copy; Shiroki. All Rights Reserved.&nbsp;&nbsp;&nbsp;<span class="custom-date">-</span></span>
-    </small>
-</footer>
-
+    <footer>
+        <small>
+            <span class="first-line">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</span>
+            <span class="second-line">Copyright&copy; Shiroki. All Rights Reserved.&nbsp;&nbsp;&nbsp;<span class="custom-date">-</span></span>
+        </small>
+    </footer>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
-    <script src="../js/main.js"></script>
-
+    <script src="js/main.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 搜索结果与禁止关键词配置
-            const possibleResults = [
-                { title: "福安饭线上平台", url: "fuanfan.html", keywords: ["福安饭", "福安飯"] },
-                { title: "管理员账号使用方法", url: "fuanfantext/fuanfanaccount.html", keywords: ["管理员账号", "管理員賬號"] },
-                { title: "香椿炒鸡蛋", url: "Chinesetoon.html", keywords: ["香椿炒鸡蛋"] },
-                { title: "临阳市概况", url: "externaldata/linyangcityinfo.html", keywords: ["临阳市", "临阳", "臨陽市", "臨陽"] },
-                { title: "3月14日新闻", url: "secret/wangshiwen_news.html", keywords: ["王世文"] },
-                { title: "大识寺传单", url: "externaldata/tianfuflyer.html", keywords: ["添福菩萨", "添福菩薩"] },
-                { title: "日记3", url: "secret/diary_3_L7n6B.html", keywords: ["添福菩萨", "添福菩薩"] },
-                { title: "添福普度节选", url: "externaldata/tianfupudu.html", keywords: ["添福普度"] },
-                { title: "3月排班表", url: "march_shift.html", keywords: ["杨佳俊", "徐浩阳", "尚念", "楊佳俊", "徐浩陽"] },
-                { title: "�嚮旡丄皛暘敬獻茲亻", url: "secret/passwordisQW3uBJ0Cv.html", keywords: ["敬献", "敬獻"] },
-                { title: "日记1", url: "secret/diary_1_H8f4V.html", keywords: ["花生糕", "开封花生糕", "開封花生糕"] },
-                { title: "春节花生糕预订清单", url: "reservation.html", keywords: ["花生糕", "开封花生糕", "開封花生糕"] },
-                { title: "欲得福泽，必有所舍", url: "secret/secretmethod_1.html", keywords: ["室利达摩无相秘法上卷", "室利達摩無相秘法上卷","室利达摩无相秘法","室利達摩無相秘法"] },
-                { title: "福安饭采访", url: "externaldata/fuanfan_news.html", keywords: ["李福安","赵惠心","净念本地事儿","趙惠心","淨念本地事兒"] },
-                { title: "净念山介绍", url: "externaldata/jingnian_news.html", keywords: ["净念本地事儿","淨念本地事兒","净念区","淨念區"] },
-                { title: "日记2", url: "secret/diary_2_j5K3p.html", keywords: ["永远幸福的家庭","永遠幸福的家庭"] },
-                { title: "诊断书", url: "secret/certificate.html", keywords: ["永远幸福的家庭","永遠幸福的家庭"] },
-                { title: "香客名单", url: "secret/pilgrims.html", keywords: ["香客"] },
-                { title: "个人文件夹", url: "secret/PolybiusSquare.html", keywords: ["室利达摩通愿大仪","室利達摩通願大儀"] },
-            ];
-            
-            // 禁止词配置：增加是否需要隐藏的标记
-            const forbiddenKeywords = {
-                // 使用一个唯一的键名，比如主要关键词或一个ID
-                "tian_fu_ganyingpian": {
-                    // 增加一个 keywords 数组
-                    keywords: ["添福感应篇", "添福感應篇"],
-                    text: "天欲添福，当问尔心。所求得偿，运竭魂沉。",
-                    hidden: true,
-                    customDate: "ex/36"
-                },
-                 "shilidamo_xiajuan": {
-                    keywords: ["室利达摩无相秘法下卷", "室利達摩無相秘法下卷"],
-                    text: "南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念南无大慈大悲添福菩萨垂慈悯念",
-                    hidden: false,
-                    customDate: "ex/36"// 不需要黑色方块隐藏
-                },
-                "gu_ming": {
-                    keywords: ["顾铭", "顧銘"],
-                    hidden: false,
-                    customDate: "ex/36"// 不需要黑色方块隐藏
-                },
-            };
+    document.addEventListener("DOMContentLoaded", function() {
+        // DOM元素
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        const resultsDisplay = document.getElementById('results-display');
+        const searchContainer = document.querySelector('.search-results-container');
+        const body = document.body;
+        const container = document.getElementById('container');
+        const logoImg = document.querySelector('#logo img');
+        const searchTitle = document.querySelector('.search-results-container h2');
+        logoImg.src = "images/logo_fuanfan.jpeg";
+        logoImg.alt = "福安家常菜馆";
+        body.classList.remove('body-forbidden');
+        container.classList.remove('container-forbidden');
+        searchContainer.classList.remove('search-container-forbidden');
 
-            // DOM元素
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('q');
-            const resultsDisplay = document.getElementById('results-display');
-            const searchContainer = document.querySelector('.search-results-container');
-            const body = document.body;
-            const container = document.getElementById('container');
-            const logoImg = document.querySelector('#logo img');
-            const searchTitle = document.querySelector('.search-results-container h2');
+        // 加密函数
+        function encode(str) {
+        str = str.trim().toLowerCase();
+        const hex = window.md5(str);
+        let bytes = [];
+        for (let i = 0; i < hex.length; i += 2) {
+        bytes.push(parseInt(hex.substr(i, 2), 16));
+        }
+        return btoa(String.fromCharCode.apply(null, bytes));
+        }
+        // 主逻辑
+        if (query) {
+        const lowerCaseQuery = query.trim().toLowerCase();
+        const encodedQuery = encode(query); 
 
-            // 初始化状态
-            logoImg.src = "images/logo_fuanfan.jpeg";
-            logoImg.alt = "福安家常菜馆";
-            body.classList.remove('body-forbidden');
-            container.classList.remove('container-forbidden');
-            searchContainer.classList.remove('search-container-forbidden');
-
-            // 搜索逻辑处理
-            if (query) {
-                const lowerCaseQuery = query.toLowerCase();
-                // 检查是否为禁止词并获取对应的配置
+            // 先加载禁止词json
+            fetch('js/forbidden_keywords.json')
+            .then(res => res.json())
+            .then(forbiddenKeywords => {
                 let forbiddenConfig = null;
-                for (const key in forbiddenKeywords) {
-                    const entry = forbiddenKeywords[key];
-                    // 检查 entry.keywords 数组中是否有任一关键词与查询词精确匹配
-                    const isForbiddenMatch = entry.keywords.some(keyword => 
-                        keyword.toLowerCase() === lowerCaseQuery
-                                                                );
-                    if (isForbiddenMatch) {
-                        forbiddenConfig = entry;
-                        break; // 找到匹配立即退出循环
+                Object.keys(forbiddenKeywords).forEach(key => {
+                    if (forbiddenKeywords[key].keywords.includes(encodedQuery)) {
+                        forbiddenConfig = forbiddenKeywords[key];
                     }
-                }
+                });
 
                 if (forbiddenConfig) {
-                    // 触发禁止关键词状态
+                    // 禁止词模式
                     logoImg.src = "images/logo_secret.png";
                     logoImg.alt = "福安家常菜馆（秘密模式）";
-                    
                     body.classList.add('body-forbidden');
                     container.classList.add('container-forbidden');
                     searchContainer.classList.add('search-container-forbidden');
-                    
-                    // 根据配置决定是否显示黑色方块
                     searchTitle.textContent = "此文件已被禁止访问";
-
-                    // 新增：替换页脚日期为当前禁止词配置的 customDate
                     const footerDate = document.querySelector('.custom-date');
                     if (footerDate && forbiddenConfig.customDate) {
                         footerDate.textContent = forbiddenConfig.customDate;
                     }
-                    
                     if (forbiddenConfig.hidden) {
-                        // 需要隐藏的文本（带黑色方块）
                         resultsDisplay.innerHTML = `
                             <div class="hidden-text-container">
                                 <span class="hidden-text">${forbiddenConfig.text}</span>
                             </div>
                         `;
                     } else {
-                        // 不需要隐藏的文本（直接显示）
                         resultsDisplay.innerHTML = `
                             <div class="hidden-text-container">
                                 <span class="visible-text">${forbiddenConfig.text}</span>
@@ -266,35 +202,37 @@
                         `;
                     }
                 } else {
-                    // 正常搜索状态 - 页脚使用原始颜色
-                    body.classList.remove('body-forbidden');
-                    container.classList.remove('container-forbidden');
-                    searchContainer.classList.remove('search-container-forbidden');
-                    searchTitle.textContent = "搜索结果";
-
-                    const filteredResults = possibleResults.filter(result => 
-                        result.keywords.some(keyword => keyword.toLowerCase() === lowerCaseQuery)
-                    );
-                    if (filteredResults.length > 0) {
-                        const countEl = document.createElement('p');
-                        countEl.innerHTML = `共有 <b>${filteredResults.length}</b> 项符合条件的结果：`;
-                        resultsDisplay.appendChild(countEl);
-                        filteredResults.forEach(result => {
-                            const linkEl = document.createElement('a');
-                            linkEl.href = result.url;
-                            linkEl.textContent = result.title;
-                            resultsDisplay.appendChild(linkEl);
-                        });
-                    } else {
-                        resultsDisplay.innerHTML = `<p>抱歉，没有找到与"<b>${query}</b>"相关的结果。</p>`;
-                    }
+                    // 非禁止词，加载加密关键词json
+                    fetch('js/encrypted_keywords.json')
+                    .then(res => res.json())
+                    .then(keywordsMap => {
+                        body.classList.remove('body-forbidden');
+                        container.classList.remove('container-forbidden');
+                        searchContainer.classList.remove('search-container-forbidden');
+                        searchTitle.textContent = "搜索结果";
+                        const results = [];
+                        for (const [key, value] of Object.entries(keywordsMap)) {
+                            if (key === encodedQuery) {
+                                results.push(value);
+                            }
+                        }
+                        if (keywordsMap[encodedQuery]) {
+                            const results = keywordsMap[encodedQuery];
+                            resultsDisplay.innerHTML = `
+                            <p>共有 <b>${results.length}</b> 项符合条件的结果：</p>
+                            ${results.map(r => `<a href="${r.url}" style="display:block;margin-top:10px;color:#337ab7;" target="_blank">${r.title}</a>`).join('')}
+                            `;
+                        } else {
+                            resultsDisplay.innerHTML = `<p>抱歉，没有找到与"<b>${query}</b>"相关的结果。</p>`;
+                        }
+                    });
                 }
-            } else {
-                // 无搜索词状态 - 页脚使用原始颜色
-                searchTitle.textContent = "搜索结果";
-                resultsDisplay.innerHTML = "<p>请输入搜索关键字。</p>";
-            }
-        });
+            });
+        } else {
+            searchTitle.textContent = "搜索结果";
+            resultsDisplay.innerHTML = "<p>请输入搜索关键字。</p>";
+        }
+    });
     </script>
 </body>
 </html>
