@@ -151,7 +151,7 @@
         container.classList.remove('container-forbidden');
         searchContainer.classList.remove('search-container-forbidden');
 
-        // 加密函数
+        // 函数
         function encode(str) {
         str = str.trim().toLowerCase();
         const hex = window.md5(str);
@@ -166,7 +166,6 @@
         const lowerCaseQuery = query.trim().toLowerCase();
         const encodedQuery = encode(query); 
 
-            // 先加载禁止词json
             fetch('js/forbidden_keywords.json')
             .then(res => res.json())
             .then(forbiddenKeywords => {
@@ -178,7 +177,6 @@
                 });
 
                 if (forbiddenConfig) {
-                    // 禁止词模式
                     logoImg.src = "images/logo_secret.png";
                     logoImg.alt = "福安家常菜馆（秘密模式）";
                     body.classList.add('body-forbidden');
@@ -203,7 +201,6 @@
                         `;
                     }
                 } else {
-                    // 非禁止词，加载加密关键词json
                     fetch('js/encrypted_keywords.json')
                     .then(res => res.json())
                     .then(keywordsMap => {
