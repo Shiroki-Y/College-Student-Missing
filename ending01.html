@@ -50,6 +50,40 @@
             font-family: 'MaShanZheng-Regular', cursive;
         }
 
+.missing-icons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.missing-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.missing-icon-frame {
+  padding: 4px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.15));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.missing-icon-frame img {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  border-radius: 14px;
+}
+
+.missing-icon-caption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+}
+        
         footer {
             position: absolute;
             bottom: 0;
@@ -159,6 +193,26 @@
         <div style="text-align: center; color: black; font-size: 1.2em; padding: 20px; padding-bottom: 70px;">
             <p class="conclusion-title">调查结束 你查明了事件的真相</p>
             <p class="thank-you">感谢你体验这部作品！&nbsp;《大学生登山失踪事件》&nbsp;&copy; 2025 Shiroki</p>
+        </div>
+        <div class="missing-icons">
+          <div class="missing-icon">
+            <div class="missing-icon-frame">
+              <img src="../images/red.png" alt="red icon" />
+            </div>
+            <p class="missing-icon-caption">小红书</p>
+          </div>
+          <div class="missing-icon">
+            <div class="missing-icon-frame">
+              <img src="../images/wechat.jpg" alt="wechat icon" />
+            </div>
+            <p class="missing-icon-caption">公众号</p>
+          </div>
+          <div class="missing-icon">
+            <div class="missing-icon-frame">
+              <img src="../images/aifadian.png" alt="aifadian icon" />
+            </div>
+            <p class="missing-icon-caption">爱发电</p>
+          </div>
         </div>
     </div>
 
